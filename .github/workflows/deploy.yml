@@ -8,9 +8,15 @@ on:
 permissions:
   contents: read
 
+# Only one deploy at a time; cancel superseded runs.
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -19,7 +25,13 @@ jobs:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      # Use `npm install` rather than `npm ci`: the lockfile is generated on
+      # macOS, and `npm ci` strict-mode intermittently hangs/crashes on the
+      # Linux runner over platform-specific optional binaries
+      # ("Exit handler never called!"). `npm install` re-resolves them cleanly.
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
       - run: npm run build
 
       - name: Deploy to Cloudflare Pages

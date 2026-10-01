@@ -20,11 +20,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Astro 7 requires Node >=22.12. No npm cache: a restored cache was
-      # deadlocking npm on the runner ("Exit handler never called!").
+      # Astro 7 requires Node >=22.12.
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      # Node 22 bundles npm 10.9.x, which deadlocks on this runner
+      # ("Exit handler never called!"). Pin a known-good npm via corepack.
+      - name: Pin npm 10.8.2
+        run: |
+          corepack enable
+          corepack prepare npm@10.8.2 --activate
+          npm --version
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund

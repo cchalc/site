@@ -20,22 +20,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Use pnpm instead of npm: Node 22's npm deadlocks on this runner
+      # ("Exit handler never called!"), regardless of npm version. pnpm is
+      # installed standalone and installs reliably.
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       # Astro 7 requires Node >=22.12.
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      # Node 22 bundles npm 10.9.x, which deadlocks on this runner
-      # ("Exit handler never called!"). Replace it with a known-good npm.
-      - name: Downgrade npm to 10.8.2
-        run: |
-          npm install -g npm@10.8.2
-          npm --version
+          cache: pnpm
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: pnpm install --no-frozen-lockfile
 
-      - run: npm run build
+      - run: pnpm run build
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3

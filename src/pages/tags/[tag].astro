@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getPublishedArticles, getTags } from '../../utils';
+
+export async function getStaticPaths() {
+  const tags = await getTags();
+  const articles = await getPublishedArticles();
+  return tags.map(({ tag }) => ({
+    params: { tag },
+    props: {
+      tag,
+      articles: articles.filter((a) => a.data.tags.includes(tag)),
+    },
+  }));
+}
+
+const { tag, articles } = Astro.props;
+---
+<BaseLayout title={`#${tag}`} description={`Articles tagged ${tag}.`}>
+  <p class="muted" style="margin-bottom:0"><a href="/tags/">&larr; All tags</a></p>
+  <h1>#{tag}</h1>
+  <ul class="article-list" style="margin-top:2rem">
+    {articles.map((a) => (
+      <ArticleCard
+        slug={a.id}
+        title={a.data.title}
+        description={a.data.description}
+        pubDate={a.data.pubDate}
+        tags={a.data.tags}
+      />
+    ))}
+  </ul>
+</BaseLayout>

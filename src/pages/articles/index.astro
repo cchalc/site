@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getPublishedArticles } from '../../utils';
+
+const articles = await getPublishedArticles();
+---
+<BaseLayout title="Articles" description="All articles.">
+  <h1>Articles</h1>
+  {articles.length === 0 ? (
+    <p class="muted">No articles yet.</p>
+  ) : (
+    <ul class="article-list" style="margin-top:2rem">
+      {articles.map((a) => (
+        <ArticleCard
+          slug={a.id}
+          title={a.data.title}
+          description={a.data.description}
+          pubDate={a.data.pubDate}
+          tags={a.data.tags}
+        />
+      ))}
+    </ul>
+  )}
+</BaseLayout>

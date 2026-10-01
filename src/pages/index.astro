@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getPublishedArticles } from '../utils';
+import { SITE } from '../consts';
+
+const articles = await getPublishedArticles();
+const recent = articles.slice(0, 5);
+---
+<BaseLayout>
+  <section style="margin-bottom:3rem">
+    <h1>{SITE.title}</h1>
+    <p class="lead">{SITE.description}</p>
+  </section>
+
+  <section>
+    <div style="display:flex;align-items:baseline;justify-content:space-between">
+      <h2 style="margin-top:0">Recent articles</h2>
+      <a href="/articles/">All articles &rarr;</a>
+    </div>
+    {recent.length === 0 ? (
+      <p class="muted">No articles yet — check back soon.</p>
+    ) : (
+      <ul class="article-list">
+        {recent.map((a) => (
+          <ArticleCard
+            slug={a.id}
+            title={a.data.title}
+            description={a.data.description}
+            pubDate={a.data.pubDate}
+            tags={a.data.tags}
+          />
+        ))}
+      </ul>
+    )}
+  </section>
+</BaseLayout>

@@ -37,11 +37,10 @@ jobs:
 
       - run: pnpm run build
 
+      # Run wrangler via pnpm (not cloudflare/wrangler-action, which installs
+      # wrangler with npm and hits the Node 22 npm deadlock on this runner).
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # Creates the Pages project named "site" on first run if it
-          # doesn't already exist.
-          command: pages deploy dist --project-name=site --branch=main
+        run: pnpm dlx wrangler@4 pages deploy dist --project-name=site --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

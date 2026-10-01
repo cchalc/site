@@ -20,15 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Node 20 (stable bundled npm). No npm cache: a restored cache was
+      # deadlocking npm on the runner ("Exit handler never called!").
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: npm
+          node-version: 20
 
-      # Use `npm install` rather than `npm ci`: the lockfile is generated on
-      # macOS, and `npm ci` strict-mode intermittently hangs/crashes on the
-      # Linux runner over platform-specific optional binaries
-      # ("Exit handler never called!"). `npm install` re-resolves them cleanly.
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 

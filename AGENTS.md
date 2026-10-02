@@ -10,14 +10,16 @@ static site deployed on Cloudflare Pages.
 
 ## Commands
 
+This project uses **pnpm** (via corepack; run `corepack enable` once).
+
 ```sh
-npm install        # install dependencies
-npm run dev        # local dev server (http://localhost:4321); shows drafts
-npm run build      # production build to dist/ (drafts excluded); MUST pass before pushing
-npm run preview    # serve the production build locally
+pnpm install        # install dependencies
+pnpm dev            # local dev server (http://localhost:4321); shows drafts
+pnpm build          # production build to dist/ (drafts excluded); MUST pass before pushing
+pnpm preview        # serve the production build locally
 ```
 
-There is no separate test suite — **`npm run build` is the gate**. A green build
+There is no separate test suite — **`pnpm build` is the gate**. A green build
 means the content schema validated and all routes rendered.
 
 ## Where things live
@@ -38,7 +40,7 @@ means the content schema validated and all routes rendered.
 - Don't add dependencies or a CSS framework without being asked — the design is
   intentionally hand-written.
 - Never edit `_archive-hakyll/`.
-- Run `npm run build` and confirm it passes before considering work done.
+- Run `pnpm build` and confirm it passes before considering work done.
 
 ## Behaviors
 

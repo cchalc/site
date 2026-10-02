@@ -9,7 +9,7 @@ This guide is for anyone — human or agent — adding or editing content.
    Use `.mdx` instead of `.md` only if you need components in the content.
 2. Add frontmatter (see fields below).
 3. Write the body in Markdown.
-4. Preview with `npm run dev` and visit the page.
+4. Preview with `pnpm dev` and visit the page.
 
 ### Frontmatter
 
@@ -35,13 +35,13 @@ mistyped field fails the build rather than shipping broken.
 | `pubDate`     | yes      | `YYYY-MM-DD`. |
 | `updatedDate` | no       | Show a "last updated" date. |
 | `tags`        | no       | Array of lowercase kebab-case strings. New tags get their own `/tags/<tag>/` page automatically. |
-| `draft`       | no       | Defaults to `false`. `true` keeps it out of production (still visible in `npm run dev`). |
+| `draft`       | no       | Defaults to `false`. `true` keeps it out of production (still visible in `pnpm dev`). |
 | `image`       | no       | Hero / Open Graph image. |
 
 ## Drafts
 
 Set `draft: true` to work on a post without publishing it. Drafts render in
-`npm run dev` but are excluded from `npm run build` (production). Flip to
+`pnpm dev` but are excluded from `pnpm build` (production). Flip to
 `false` to publish.
 
 ## Images
@@ -62,7 +62,7 @@ optimization, or an absolute URL for externally hosted images.
 Always confirm the site still builds:
 
 ```sh
-npm run build
+pnpm build
 ```
 
 If it fails, fix the error before committing — the deploy runs the same command.

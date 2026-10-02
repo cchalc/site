@@ -46,7 +46,7 @@ Before writing, gather:
    (`title`, `description`, `pubDate`, `tags`, `draft`).
 2. Write the body: no top-level `#` heading (the title comes from frontmatter);
    use `##`/`###` for structure; fenced code blocks with language tags.
-3. Run `npm run build` and confirm it passes (schema valid, route renders).
+3. Run `pnpm build` and confirm it passes (schema valid, route renders).
 4. Report to the author: the new file path, a one-line summary, any `TODO:`
    markers, and that it's a draft awaiting review.
 

@@ -15,13 +15,13 @@ Cloudflare Pages, so what lands there goes public.
 
 ## Evidence
 
-- Output of `npm run build` — the single source of truth for "does it work".
+- Output of `pnpm build` — the single source of truth for "does it work".
 - `git status` / `git diff` — what is actually about to be committed.
 - Whether the change publishes content: a new post, or flipping `draft: false`.
 
 ## Decision
 
-- **Never push a failing build.** `npm run build` must complete cleanly first.
+- **Never push a failing build.** `pnpm build` must complete cleanly first.
 - **Publishing is author-gated.** Do not flip `draft: true` → `false`, and do
   not push to the deploy branch, without explicit author approval.
 - Commit scope should be coherent: one post or one logical change per commit.
@@ -29,7 +29,7 @@ Cloudflare Pages, so what lands there goes public.
 
 ## Execution
 
-1. `npm run build` → confirm it passes.
+1. `pnpm build` → confirm it passes.
 2. `git status` and review the diff; stage only intended files.
 3. Write a clear commit message describing the change.
 4. Push only when the author has approved publishing. Cloudflare Pages rebuilds

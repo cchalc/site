@@ -5,11 +5,14 @@ Markdown, deployed on Cloudflare Pages.
 
 ## Quick start
 
+This project uses [pnpm](https://pnpm.io). It ships with Node via corepack —
+enable it once with `corepack enable` (no separate install needed).
+
 ```sh
-npm install
-npm run dev       # local dev server at http://localhost:4321
-npm run build     # static build to dist/
-npm run preview   # serve the built site locally
+pnpm install
+pnpm dev       # local dev server at http://localhost:4321
+pnpm build     # static build to dist/
+pnpm preview   # serve the built site locally
 ```
 
 ## Writing

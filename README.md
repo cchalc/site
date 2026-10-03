@@ -42,3 +42,17 @@ src/
 ```
 
 The previous Hakyll/Nix site is preserved in `_archive-hakyll/` for reference.
+
+## Creating a post
+
+```sh
+pnpm new "My Post Title"   # scaffolds src/content/articles/my-post-title.md as a draft
+```
+
+Then edit the file, set `draft: false` when ready, and `pnpm build`.
+
+## License
+
+The site **code** (templates, components, styles, config) is licensed under the
+[MIT License](./LICENSE). The **prose/content** under `src/content/` is
+© Christopher Chalcraft, all rights reserved, unless noted otherwise in a post.

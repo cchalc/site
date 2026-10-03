@@ -1,0 +1,7 @@
+# Normalize line endings.
+* text=auto eol=lf
+
+# Keep GitHub's language stats focused on the live site, not generated or
+# archived files.
+pnpm-lock.yaml linguist-generated=true
+_archive-hakyll/** linguist-vendored=true

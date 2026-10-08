@@ -1,0 +1,5 @@
+# `packages` is required by pnpm 9 (CI); `allowBuilds` lets pnpm 10+ run esbuild's install script.
+packages:
+  - .
+allowBuilds:
+  esbuild: true

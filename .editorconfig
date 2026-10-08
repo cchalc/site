@@ -10,8 +10,3 @@ indent_size = 2
 
 [*.md]
 trim_trailing_whitespace = false
-
-[_archive-hakyll/**]
-# Legacy files; don't enforce style here.
-trim_trailing_whitespace = false
-insert_final_newline = false

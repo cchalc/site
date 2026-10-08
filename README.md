@@ -41,8 +41,6 @@ src/
 └── utils.ts            # article querying helpers
 ```
 
-The previous Hakyll/Nix site is preserved in `_archive-hakyll/` for reference.
-
 ## Creating a post
 
 ```sh

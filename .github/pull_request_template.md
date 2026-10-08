@@ -8,4 +8,3 @@
 
 - [ ] `pnpm build` passes locally
 - [ ] New/edited posts follow `CONTRIBUTING.md` (valid frontmatter, correct slug)
-- [ ] No changes under `_archive-hakyll/`

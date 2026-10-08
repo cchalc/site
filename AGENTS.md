@@ -31,7 +31,6 @@ means the content schema validated and all routes rendered.
 - `src/styles/tokens.css` — design tokens (colors, type, spacing). Change the
   look here, not with ad-hoc inline styles.
 - `src/consts.ts` — site title, description, navigation.
-- `_archive-hakyll/` — the old site. Do not edit; reference only.
 
 ## Conventions
 
@@ -39,7 +38,6 @@ means the content schema validated and all routes rendered.
 - Keep changes minimal and match the surrounding style.
 - Don't add dependencies or a CSS framework without being asked — the design is
   intentionally hand-written.
-- Never edit `_archive-hakyll/`.
 - Run `pnpm build` and confirm it passes before considering work done.
 
 ## Behaviors

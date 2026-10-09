@@ -1,0 +1,6 @@
+# direnv config. Copy to .envrc, then run `direnv allow` once to enable.
+# Loads local secrets from .env (gitignored) if present.
+dotenv_if_exists .env
+
+# Put project-local binaries (astro, wrangler, ...) on PATH.
+PATH_add node_modules/.bin

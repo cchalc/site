@@ -16,6 +16,8 @@ export async function getStaticPaths() {
 
 const { article, prev, next } = Astro.props;
 const { Content } = await render(article);
+// Only published Markdown articles are on the blyg (see src/blyg/blyg.ts).
+const onBlyg = !article.data.draft && !article.filePath?.endsWith('.mdx');
 const imagePath =
   typeof article.data.image === 'string'
     ? article.data.image
@@ -30,6 +32,7 @@ const imagePath =
   image={imagePath}
   prev={prev}
   next={next}
+  blygId={onBlyg ? article.data.blygId : undefined}
 >
   <Content />
 </ArticleLayout>

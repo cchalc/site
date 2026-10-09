@@ -4,6 +4,7 @@ description: A new home for my writing on software, systems, and the things I bu
 pubDate: 2026-09-30
 tags: [meta]
 draft: false
+blygId: 1avem9rcmga0scsejqamdbweky
 ---
 
 This is the first post on my new site. I wanted a simple, fast, text-first

@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE } from '../consts';
+import { ORIGIN as BLYG_ORIGIN } from '../blyg/blyg';
 
 interface Props {
   title?: string;
@@ -36,6 +37,9 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title={SITE.title} href="/rss.xml" />
+    <!-- Blygger discovery: href is the blyg origin, not the manifest (spec §12.1) -->
+    <link rel="blyg" href={BLYG_ORIGIN} />
+    <slot name="head" />
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content={type} />

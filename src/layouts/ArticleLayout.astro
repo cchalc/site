@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import { ORIGIN as BLYG_ORIGIN } from '../blyg/blyg';
 
 interface Neighbour {
   href: string;
@@ -18,11 +19,21 @@ interface Props {
   prev?: Neighbour;
   /** Newer article, if any. */
   next?: Neighbour;
+  /** Blygger item id, when this article is published on the blyg. */
+  blygId?: string;
 }
-const { title, description, pubDate, updatedDate, tags = [], image, prev, next } =
+const { title, description, pubDate, updatedDate, tags = [], image, prev, next, blygId } =
   Astro.props;
 ---
 <BaseLayout title={title} description={description} image={image} type="article">
+  {blygId && (
+    <link
+      slot="head"
+      rel="alternate"
+      type="application/json"
+      href={`${BLYG_ORIGIN}items/${blygId}.json`}
+    />
+  )}
   <article>
     <header class="post-header">
       <h1>{title}</h1>

@@ -1,0 +1,4 @@
+# Cloudflare Pages headers. The blyg is read cross-origin by other clients
+# (Blygger spec 0.3 §4: public JSON and XML SHOULD allow any origin).
+/blyg/*
+  Access-Control-Allow-Origin: *

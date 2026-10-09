@@ -14,6 +14,3 @@ node_modules/
 # logs
 *.log
 npm-debug.log*
-# editors: remove once covered by the global ignore (home-manager ignore_global)
-.vscode/
-.idea/

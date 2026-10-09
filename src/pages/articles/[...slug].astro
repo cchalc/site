@@ -5,14 +5,19 @@ import { getPublishedArticles } from '../../utils';
 
 export async function getStaticPaths() {
   const articles = await getPublishedArticles();
-  return articles.map((article) => ({
+  // Newest first, so the older neighbour is i + 1 and the newer is i - 1.
+  const link = (a?: (typeof articles)[number]) =>
+    a && { href: `/articles/${a.id}/`, title: a.data.title };
+  return articles.map((article, i) => ({
     params: { slug: article.id },
-    props: { article },
+    props: { article, prev: link(articles[i + 1]), next: link(articles[i - 1]) },
   }));
 }
 
-const { article } = Astro.props;
+const { article, prev, next } = Astro.props;
 const { Content } = await render(article);
+// Only published Markdown articles are on the blyg (see src/blyg/blyg.ts).
+const onBlyg = !article.data.draft && !article.filePath?.endsWith('.mdx');
 const imagePath =
   typeof article.data.image === 'string'
     ? article.data.image
@@ -25,6 +30,9 @@ const imagePath =
   updatedDate={article.data.updatedDate}
   tags={article.data.tags}
   image={imagePath}
+  prev={prev}
+  next={next}
+  blygId={onBlyg ? article.data.blygId : undefined}
 >
   <Content />
 </ArticleLayout>

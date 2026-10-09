@@ -22,6 +22,7 @@ updatedDate: 2026-10-02        # optional
 tags: [astro, web]             # optional; lowercase, kebab-case
 draft: false                   # true = hidden in production builds
 image: ./hero.png              # optional; path under the post, or an absolute URL
+blygId: 0zz6hm48t2ctcetsgya5g098bh  # permanent Blygger id; added by `pnpm new` / `pnpm blyg:sync`
 ---
 ```
 
@@ -37,6 +38,7 @@ mistyped field fails the build rather than shipping broken.
 | `tags`        | no       | Array of lowercase kebab-case strings. New tags get their own `/tags/<tag>/` page automatically. |
 | `draft`       | no       | Defaults to `false`. `true` keeps it out of production (still visible in `pnpm dev`). |
 | `image`       | no       | Hero / Open Graph image. |
+| `blygId`      | no       | Permanent [Blygger](https://blygger.org/) item id. Generated for you; never change or reuse it. |
 
 ## Drafts
 
@@ -57,11 +59,31 @@ optimization, or an absolute URL for externally hosted images.
 - Fenced code blocks with a language tag get syntax highlighting.
 - Keep descriptions factual and specific.
 
+## The blyg (`/blyg/`)
+
+Published `.md` articles are also served as a [Blygger](https://blygger.org/spec/0.3/)
+blyg at `/blyg/`: a manifest, a feed, and one JSON document per article. MDX
+articles are left off it.
+
+Each article's version history lives in `src/blyg/ledger.json`, which is
+committed. After publishing, editing, unpublishing, or deleting a published
+article, record the change:
+
+```sh
+pnpm blyg:sync
+```
+
+That bumps the version of changed articles, adds a withdrawal for removed
+ones, and writes a `blygId` into any published article missing one. Versions
+are visible to subscribers, so sync once when a change is ready rather than
+after every edit. `pnpm build` fails if you forget.
+
 ## Before you commit
 
 Always confirm the site still builds:
 
 ```sh
+pnpm blyg:sync   # only if published content changed
 pnpm build
 ```
 

@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // Cloudflare Pages URL. Change to your custom domain when you add one.
 // Used for canonical URLs, sitemap, and RSS.
-const SITE_URL = 'https://site-66t.pages.dev';
+const SITE_URL = 'https://featherandwire.dev';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,10 +13,11 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {
-      // Warm, legible themes for light/dark. Shiki renders both; CSS picks one.
+      // xess renders code as a Gruvbox terminal in both color schemes.
+      // Shiki renders both; CSS picks one.
       themes: {
-        light: 'github-light',
-        dark: 'github-dark',
+        light: 'gruvbox-dark-hard',
+        dark: 'gruvbox-dark-medium',
       },
       wrap: true,
     },

@@ -2,6 +2,7 @@
 // Scaffold a new article draft: `pnpm new "My Post Title"`.
 import { writeFile, mkdir, access } from 'node:fs/promises';
 import { join } from 'node:path';
+import { newBlygId } from '../src/blyg/id.mjs';
 
 const title = process.argv.slice(2).join(' ').trim();
 if (!title) {
@@ -35,6 +36,7 @@ description: TODO one or two sentences for listings and meta tags.
 pubDate: ${today}
 tags: []
 draft: true
+blygId: ${newBlygId()}
 ---
 
 Write here.
@@ -42,4 +44,4 @@ Write here.
 
 await writeFile(file, frontmatter, 'utf8');
 console.log(`Created ${file}`);
-console.log('Edit it, set draft: false when ready, then run: pnpm build');
+console.log('Edit it, set draft: false when ready, then run: pnpm blyg:sync && pnpm build');

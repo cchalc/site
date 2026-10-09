@@ -5,6 +5,7 @@ pubDate: 2026-09-30
 updatedDate: 2026-09-30
 tags: [meta, astro, web]
 draft: false
+blygId: 10m8e5k9504kppzhvdqh9d2a3k
 ---
 
 I rebuilt this site from scratch with three goals: it should be **simple**,

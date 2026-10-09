@@ -9,7 +9,7 @@ const tags = await getTags();
   {tags.length === 0 ? (
     <p class="muted">No tags yet.</p>
   ) : (
-    <ul class="tag-row" style="margin-top:1.5rem">
+    <ul class="tag-row">
       {tags.map(({ tag, count }) => (
         <li><a class="tag" href={`/tags/${tag}/`}>#{tag} <span class="muted">({count})</span></a></li>
       ))}

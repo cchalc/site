@@ -1,19 +1,16 @@
 # build output
-dist/
+/dist/
 # astro generated types / cache
-.astro/
+/.astro/
 # dependencies
 node_modules/
 # env & secrets (never commit real values; .env.example is the template)
-.env
-.env.*
-!.env.example
-.dev.vars
-.direnv/
+/.env
+/.env.*
+!/.env.example
+/.dev.vars
+/.envrc
+/.direnv/
 # logs
 *.log
 npm-debug.log*
-# os / editor
-.DS_Store
-.vscode/
-.idea/

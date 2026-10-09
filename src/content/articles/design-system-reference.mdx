@@ -1,0 +1,73 @@
+---
+title: Design system reference
+description: Every prose element and MDX component the site styles, on one page.
+pubDate: 2026-10-08
+tags: [meta, web]
+draft: true
+---
+
+import Admonition from '../../components/Admonition.astro';
+import Badge from '../../components/Badge.astro';
+
+This draft exercises everything the stylesheet covers, so a design change can
+be checked on one page. It only renders under `pnpm dev`.
+
+## Text
+
+Body copy is Schibsted Grotesk, **strong text** steps up to `fg-0`, and
+[links](https://design.within.website/) invert to cream-on-magenta on hover.
+Inline `code` is a small chip, <kbd>Ctrl</kbd> + <kbd>K</kbd> is a keyboard
+key, and <mark>marked text</mark> uses the bright purple.
+
+### A third-level heading
+
+#### Fourth level
+
+##### Fifth level
+
+###### Sixth level, tracked uppercase
+
+> Blockquotes get a literal `>` prefix, like a terminal.
+
+- An unordered list
+- With two items
+
+1. An ordered list
+2. Also with two
+
+## Code
+
+```ts
+export function greet(name: string): string {
+  return `Hello, ${name}!`;
+}
+```
+
+## Table
+
+| Token | Light | Dark |
+| --- | --- | --- |
+| `--bg-hard` | `#f9f5d7` | `#1d2021` |
+| `--link` | `#b80050` | `#ffa8ce` |
+
+<details>
+<summary>Details fold open</summary>
+
+Hidden content, revealed.
+
+</details>
+
+## Admonitions
+
+<Admonition type="info">Info: neutral context.</Admonition>
+<Admonition type="tip" title="Pro tip">Tip with a custom title.</Admonition>
+<Admonition type="note">Note.</Admonition>
+<Admonition type="warning">Warning.</Admonition>
+<Admonition type="danger">Danger.</Admonition>
+<Admonition type="success">Success.</Admonition>
+
+## Badges
+
+<Badge>neutral</Badge> <Badge type="info">info</Badge> <Badge type="tip">tip</Badge>
+<Badge type="note">note</Badge> <Badge type="warning">warning</Badge>
+<Badge type="danger">danger</Badge> <Badge type="success">success</Badge>

@@ -1,66 +1,233 @@
-/* Design tokens: warm, type-forward, light default with a dark variant.
-   Accent is a warm amber/gold (an original take, not a copy of any one site). */
+/* Design tokens, ported from xess — Xe Iaso's design system
+   (https://design.within.website/, CC0). Gruvbox Pale palette, Podkova
+   headings, Schibsted Grotesk body, Iosevka code. Light is the default;
+   dark applies under :root[data-theme="dark"] (set by BaseLayout/ThemeToggle).
+   Fonts are self-hosted from /fonts (SIL OFL 1.1, see public/fonts/LICENSE.md). */
 
-:root {
-  /* Warm neutrals (light) */
-  --color-bg: #fdfbf6;
-  --color-surface: #f4efe4;
-  --color-text: #211e18;
-  --color-muted: #6d665b;
-  --color-border: #e7dfcf;
+/* Fonts ------------------------------------------------------------------- */
 
-  /* Accent — warm amber/gold */
-  --color-accent: #b8740a;        /* link / accent on light bg (AA contrast) */
-  --color-accent-strong: #955d05;
-  --color-accent-soft: #f6e4b8;
-
-  /* Code surface */
-  --color-code-bg: #f6f1e7;
-
-  /* Typography */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-serif: Charter, "Iowan Old Style", "Palatino Linotype", Palatino,
-    Georgia, "Times New Roman", serif;
-  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code",
-    Menlo, Consolas, monospace;
-
-  --text-base: 1.0625rem;   /* ~17px */
-  --line-base: 1.72;
-  --measure: 66ch;          /* readable article width */
-
-  /* Fluid type scale for headings */
-  --text-h1: clamp(2rem, 1.4rem + 2.4vw, 2.75rem);
-  --text-h2: clamp(1.4rem, 1.15rem + 1vw, 1.7rem);
-  --text-h3: clamp(1.15rem, 1.05rem + 0.4vw, 1.3rem);
-  --text-lead: clamp(1.1rem, 1rem + 0.5vw, 1.25rem);
-
-  /* Spacing / shape */
-  --space: 1rem;
-  --radius: 10px;
-  --radius-sm: 6px;
-  --container: 46rem;
-
-  /* Effects */
-  --shadow-sm: 0 1px 2px rgba(33, 30, 24, 0.04),
-    0 2px 8px rgba(33, 30, 24, 0.05);
-  --transition: 0.18s ease;
-  --focus-ring: 0 0 0 3px var(--color-accent-soft);
+@font-face {
+  font-family: "Podkova";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(/fonts/podkova.woff2) format("woff2");
 }
 
+/* latin-ext */
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(/fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(/fonts/schibsted-grotesk-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext italic */
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(/fonts/schibsted-grotesk-italic-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+/* latin italic */
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(/fonts/schibsted-grotesk-italic-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Iosevka";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/iosevka-400.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Iosevka";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/iosevka-700.woff2) format("woff2");
+}
+
+/* Light (default) --------------------------------------------------------- */
+
+:root {
+  /* Gruvbox Pale ramps */
+  --bg-hard: #f9f5d7;
+  --bg-soft: #f2e5bc;
+  --bg-0: #fbf1c7;
+  --bg-1: #ebdbb2;
+  --bg-2: #d5c4a1;
+  --bg-3: #bdae93;
+  --bg-4: #a89984;
+
+  --fg-0: #282828;
+  --fg-1: #3c3836;
+  --fg-2: #504945;
+  --fg-3: #665c54;
+  --fg-4: #7c6f64;
+
+  /* Accents: muted (text-safe) / bright (fills, dots) */
+  --red: #9d0006;
+  --red-bright: #cc241d;
+  --green: #79740e;
+  --green-bright: #98971a;
+  --yellow: #b57614;
+  --yellow-bright: #d79921;
+  --blue: #076678;
+  --blue-bright: #458588;
+  --purple: #8f3f71;
+  --purple-bright: #b16286;
+  --aqua: #427b58;
+  --aqua-bright: #689d6a;
+  --orange: #af3a03;
+  --orange-bright: #d65d0e;
+
+  /* Links: magenta that inverts on hover (xess signature) */
+  --link: #b80050;
+  --link-hover-bg: #9e0045;
+  --link-hover: #fdf4c1;
+  --link-visited: #53493c;
+  --link-visited-hover-bg: #282828;
+  --link-visited-hover: #fff;
+
+  /* Code blocks: Gruvbox terminal in light mode */
+  --pre-bg: #1d2021;
+  --pre-fg: #ebdbb2;
+
+  /* Semantic aliases used by global.css and components */
+  --color-bg: var(--bg-hard);
+  --color-surface: var(--bg-soft);
+  --color-card: var(--bg-2);
+  --color-text: var(--fg-1);
+  --color-strong: var(--fg-0);
+  --color-muted: var(--fg-3);
+  --color-border: var(--bg-3);
+  --color-hairline: var(--bg-4);
+  --color-code-bg: var(--bg-1);
+
+  /* Typography */
+  --font-sans: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  --font-serif: "Podkova", Georgia, serif;
+  --font-mono: "Iosevka", ui-monospace, "SF Mono", Consolas, monospace;
+
+  --step--1: 0.875rem; /* 14px */
+  --step-0: 1rem; /* 16px */
+  --step-1: 1.125rem; /* 18px */
+  --step-2: 1.25rem; /* 20px */
+  --step-3: 1.5rem; /* 24px */
+  --step-4: 1.875rem; /* 30px */
+  --step-5: 2.25rem; /* 36px */
+  --step-6: 3rem; /* 48px */
+
+  --line-base: 1.55;
+  --measure: 65ch;
+
+  /* Spacing / shape */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --container: 50rem;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* Effects: two shadows only */
+  --shadow-sm: 0 1px 2px rgba(40, 40, 40, 0.08);
+  --shadow-md: 0 2px 6px rgba(40, 40, 40, 0.12);
+
+  /* Motion: 1px hover lift and one-step color shifts only */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-standard: cubic-bezier(0.2, 0.6, 0.2, 1);
+
+  /* Focus */
+  --focus-ring: var(--purple-bright);
+  --focus-ring-width: 2px;
+
+  --z-sticky: 20;
+  --z-overlay: 40;
+}
+
+/* Dark -------------------------------------------------------------------- */
+
 :root[data-theme="dark"] {
-  --color-bg: #15130e;
-  --color-surface: #211d15;
-  --color-text: #ece7da;
-  --color-muted: #a69e8c;
-  --color-border: #322c20;
+  --bg-hard: #1d2021;
+  --bg-soft: #32302f;
+  --bg-0: #282828;
+  --bg-1: #3c3836;
+  --bg-2: #504945;
+  --bg-3: #665c54;
+  --bg-4: #7c6f64;
 
-  --color-accent: #f0b429;        /* brighter gold reads well on dark */
-  --color-accent-strong: #ffcf5c;
-  --color-accent-soft: #3a2f12;
+  --fg-0: #fbf1c7;
+  --fg-1: #ebdbb2;
+  --fg-2: #d5c4a1;
+  --fg-3: #bdae93;
+  --fg-4: #a89984;
 
-  --color-code-bg: #1c1810;
+  --red: #fb4934;
+  --red-bright: #cc241d;
+  --green: #b8bb26;
+  --green-bright: #98971a;
+  --yellow: #fabd2f;
+  --yellow-bright: #d79921;
+  --blue: #83a598;
+  --blue-bright: #458588;
+  --purple: #d3869b;
+  --purple-bright: #b16286;
+  --aqua: #8ec07c;
+  --aqua-bright: #689d6a;
+  --orange: #fe8019;
+  --orange-bright: #d65d0e;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.35);
-  --focus-ring: 0 0 0 3px rgba(240, 180, 41, 0.35);
+  --link: #ffa8ce;
+  --link-hover-bg: #b3004d;
+  --link-hover: #fff;
+  --link-visited: #c1b7a9;
+  --link-visited-hover-bg: #282828;
+  --link-visited-hover: #fdf4c1;
+
+  --pre-bg: var(--bg-soft);
+  --pre-fg: var(--fg-1);
+  --color-code-bg: var(--bg-soft);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.4);
 }

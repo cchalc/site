@@ -1,0 +1,25 @@
+---
+// xess-style callout for MDX posts:
+//   <Admonition type="tip" title="Heads up">Body text</Admonition>
+type Kind = 'info' | 'warning' | 'tip' | 'note' | 'danger' | 'success';
+
+interface Props {
+  type?: Kind;
+  /** Defaults to the capitalized type name. */
+  title?: string;
+}
+const { type = 'note', title } = Astro.props;
+const heading = title ?? type.charAt(0).toUpperCase() + type.slice(1);
+---
+<aside class={`admonition admonition--${type}`} aria-label={heading}>
+  <span class="admonition__rule" aria-hidden="true"></span>
+  <div class="admonition__body">
+    <div class="admonition__header">
+      <span class="admonition__dot" aria-hidden="true"></span>
+      <span class="admonition__title">{heading}</span>
+    </div>
+    <div class="admonition__content">
+      <slot />
+    </div>
+  </div>
+</aside>

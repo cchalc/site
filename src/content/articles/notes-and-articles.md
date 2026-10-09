@@ -4,6 +4,7 @@ description: How I turn messy working notes into finished posts without the fric
 pubDate: 2026-09-28
 tags: [writing, process]
 draft: false
+blygId: 6awt8rb2qvbv7e922w2k3z6ev5
 ---
 
 Most blogs die of friction. You have a thought, but publishing it means

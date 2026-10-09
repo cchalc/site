@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // Cloudflare Pages URL. Change to your custom domain when you add one.
 // Used for canonical URLs, sitemap, and RSS.
-const SITE_URL = 'https://site-66t.pages.dev';
+const SITE_URL = 'https://featherandwire.dev';
 
 // https://astro.build/config
 export default defineConfig({

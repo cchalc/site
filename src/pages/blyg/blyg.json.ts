@@ -24,6 +24,7 @@ export const GET: APIRoute = async () => {
     author: AUTHOR,
     feed: 'feed.xml',
     items: 'items/index.json',
+    blogroll: 'blogroll.opml',
     ...(blyg.updated && { updated: blyg.updated }),
   });
 };

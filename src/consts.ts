@@ -14,4 +14,6 @@ export const NAV = [
   { href: '/articles/', label: 'Articles' },
   { href: '/tags/', label: 'Tags' },
   { href: '/about/', label: 'About' },
+  // Short-form posts live on Blygger Studio (separate Worker).
+  { href: 'https://blyg.featherandwire.dev/', label: 'Fragments' },
 ] as const;

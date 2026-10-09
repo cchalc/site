@@ -1,0 +1,8 @@
+---
+// Small status chip: <Badge type="success">Shipped</Badge>
+interface Props {
+  type?: 'neutral' | 'info' | 'warning' | 'tip' | 'note' | 'danger' | 'success';
+}
+const { type = 'neutral' } = Astro.props;
+---
+<span class={`badge badge--${type}`}><slot /></span>

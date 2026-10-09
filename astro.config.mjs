@@ -13,10 +13,11 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {
-      // Warm, legible themes for light/dark. Shiki renders both; CSS picks one.
+      // xess renders code as a Gruvbox terminal in both color schemes.
+      // Shiki renders both; CSS picks one.
       themes: {
-        light: 'github-light',
-        dark: 'github-dark',
+        light: 'gruvbox-dark-hard',
+        dark: 'gruvbox-dark-medium',
       },
       wrap: true,
     },

@@ -1,0 +1,18 @@
+---
+// Responsive figure with AVIF/WebP fallbacks for MDX posts:
+//   import shot from './shot.png';
+//   <Figure src={shot} alt="…" caption="…" />
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+}
+const { src, alt, caption } = Astro.props;
+---
+<figure class="figure">
+  <Picture src={src} alt={alt} formats={['avif', 'webp']} loading="lazy" />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

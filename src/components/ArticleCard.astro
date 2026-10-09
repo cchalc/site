@@ -17,7 +17,7 @@ const { slug, title, description, pubDate, tags = [] } = Astro.props;
   <p class="article-card__meta"><FormattedDate date={pubDate} /></p>
   <p class="article-card__desc">{description}</p>
   {tags.length > 0 && (
-    <ul class="tag-row" style="margin-top:0.5rem">
+    <ul class="tag-row">
       {tags.map((t) => (
         <li><a class="tag" href={`/tags/${t}/`}>#{t}</a></li>
       ))}

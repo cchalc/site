@@ -5,13 +5,16 @@ import { getPublishedArticles } from '../../utils';
 
 export async function getStaticPaths() {
   const articles = await getPublishedArticles();
-  return articles.map((article) => ({
+  // Newest first, so the older neighbour is i + 1 and the newer is i - 1.
+  const link = (a?: (typeof articles)[number]) =>
+    a && { href: `/articles/${a.id}/`, title: a.data.title };
+  return articles.map((article, i) => ({
     params: { slug: article.id },
-    props: { article },
+    props: { article, prev: link(articles[i + 1]), next: link(articles[i - 1]) },
   }));
 }
 
-const { article } = Astro.props;
+const { article, prev, next } = Astro.props;
 const { Content } = await render(article);
 const imagePath =
   typeof article.data.image === 'string'
@@ -25,6 +28,8 @@ const imagePath =
   updatedDate={article.data.updatedDate}
   tags={article.data.tags}
   image={imagePath}
+  prev={prev}
+  next={next}
 >
   <Content />
 </ArticleLayout>

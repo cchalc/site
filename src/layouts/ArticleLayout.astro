@@ -2,6 +2,11 @@
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
+interface Neighbour {
+  href: string;
+  title: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -9,20 +14,24 @@ interface Props {
   updatedDate?: Date;
   tags?: string[];
   image?: string;
+  /** Older article, if any. */
+  prev?: Neighbour;
+  /** Newer article, if any. */
+  next?: Neighbour;
 }
-const { title, description, pubDate, updatedDate, tags = [], image } =
+const { title, description, pubDate, updatedDate, tags = [], image, prev, next } =
   Astro.props;
 ---
 <BaseLayout title={title} description={description} image={image} type="article">
   <article>
-    <header style="margin-bottom:2rem">
-      <h1 style="margin-bottom:0.4rem">{title}</h1>
-      <p class="muted" style="font-size:0.9rem;margin:0">
+    <header class="post-header">
+      <h1>{title}</h1>
+      <p class="post-meta">
         <FormattedDate date={pubDate} />
-        {updatedDate && <> · updated <FormattedDate date={updatedDate} /></>}
+        {updatedDate && <span>updated <FormattedDate date={updatedDate} /></span>}
       </p>
       {tags.length > 0 && (
-        <ul class="tag-row" style="margin-top:0.75rem">
+        <ul class="tag-row">
           {tags.map((t) => (
             <li><a class="tag" href={`/tags/${t}/`}>#{t}</a></li>
           ))}
@@ -33,5 +42,21 @@ const { title, description, pubDate, updatedDate, tags = [], image } =
       <slot />
     </div>
   </article>
-  <p style="margin-top:3rem"><a href="/articles/">&larr; All articles</a></p>
+  {(prev || next) && (
+    <nav class="nextprev" aria-label="More articles">
+      {prev && (
+        <a class="nextprev__prev" href={prev.href} rel="prev">
+          <span class="nextprev__label">&larr; Older</span>
+          <span class="nextprev__title">{prev.title}</span>
+        </a>
+      )}
+      {next && (
+        <a class="nextprev__next" href={next.href} rel="next">
+          <span class="nextprev__label">Newer &rarr;</span>
+          <span class="nextprev__title">{next.title}</span>
+        </a>
+      )}
+    </nav>
+  )}
+  <p><a href="/articles/">&larr; All articles</a></p>
 </BaseLayout>

@@ -1,6 +1,6 @@
 // Site-wide metadata. Edit these to make the site yours.
 export const SITE = {
-  title: 'Christopher Chalcraft',
+  title: 'Feather & Wire',
   // Short tagline used on the home page and in meta descriptions.
   description: 'Writing on software, systems, and the things I build.',
   author: 'Christopher Chalcraft',

@@ -42,6 +42,9 @@ means the content schema validated and all routes rendered.
 ## Conventions
 
 - Authoring a post: follow [`CONTRIBUTING.md`](./CONTRIBUTING.md) exactly.
+  Short-form posts live in Blygger Studio, not this repo; its authoring syntax
+  (`![[id]]`, `[[id]]`, `[TK]`, stubs, forks) is in CONTRIBUTING's "Writing in
+  Blygger Studio" section and works only in Studio.
 - Keep changes minimal and match the surrounding style.
 - Don't add dependencies or a CSS framework without being asked — the design is
   intentionally hand-written.

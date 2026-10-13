@@ -26,9 +26,17 @@ Before writing, gather:
   heading style.
 - The current tag set (`src/content/articles/*` frontmatter, or `/tags/`) so new
   posts reuse existing tags rather than minting near-duplicates.
+- The "Writing in Blygger Studio" section of `CONTRIBUTING.md`, to decide
+  whether the piece is a repo article or a Studio fragment/thread.
 
 ## Decision
 
+- **Pick the venue first.** Long-form, polished pieces are repo articles.
+  Short notes, quotes and responses belong in Studio (Fragments). For a Studio
+  piece, draft the text with Studio syntax and hand it to the author: agents
+  can't publish there.
+- **Never put Studio syntax in a repo article.** `![[id]]`, `[[id]]` and
+  `[TK]…[/TK]` only work in Studio; Astro would print them literally.
 - Choose a lowercase kebab-case slug from the title; that filename is the URL.
 - Pick `tags` from the existing set where they fit; only add a new tag when none
   applies.

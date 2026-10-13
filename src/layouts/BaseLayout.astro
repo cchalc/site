@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE } from '../consts';
+import { SITE, SOCIAL } from '../consts';
 import { ORIGIN as BLYG_ORIGIN } from '../blyg/blyg';
 
 interface Props {
@@ -31,6 +31,7 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/podkova.woff2" as="font" type="font/woff2" crossorigin />
     <title>{pageTitle}</title>
@@ -39,6 +40,8 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
     <link rel="alternate" type="application/rss+xml" title={SITE.title} href="/rss.xml" />
     <!-- Blygger discovery: href is the blyg origin, not the manifest (spec §12.1) -->
     <link rel="blyg" href={BLYG_ORIGIN} />
+    <!-- Profile identity links (IndieWeb rel="me") -->
+    {SOCIAL.map((s) => <link rel="me" href={s.href} />)}
     <slot name="head" />
 
     <!-- Open Graph / Twitter -->

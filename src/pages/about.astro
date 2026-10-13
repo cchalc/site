@@ -1,20 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SOCIAL } from '../consts';
 ---
-<BaseLayout title="About" description="About me and this site.">
+<BaseLayout title="About" description="About Feather & Wire and Christopher Chalcraft.">
   <div class="prose">
     <h1>About</h1>
     <p>
-      Hi, I'm Christopher. This is my corner of the web for writing about
-      software, systems, and the things I build.
+      Hi, I'm Christopher Chalcraft. Feather &amp; Wire is my corner of the web
+      for writing about software, systems, and the things I build: the
+      feather is the writing, the wire is what it's about.
     </p>
     <p>
-      This site is built with <a href="https://astro.build">Astro</a>, written
-      in Markdown, and deployed on Cloudflare Pages. The source lives on
-      GitHub.
+      Long-form articles live here. Shorter notes go to <a href="https://blyg.featherandwire.dev/">Fragments</a>,
+      a <a href="https://blygger.org/">Blygger</a> blyg, and the articles are
+      published as one too, at <a href="/blyg/blyg.json">/blyg/</a>.
     </p>
     <p>
-      You can subscribe via <a href="/rss.xml">RSS</a>.
+      The site is built with <a href="https://astro.build">Astro</a>, styled
+      after Xe Iaso's <a href="https://design.within.website/">xess</a>, and
+      deployed on Cloudflare Pages. The source is on <a href="https://github.com/cchalc/site">GitHub</a>.
     </p>
+    <h2>Elsewhere</h2>
+    <ul>
+      {SOCIAL.map((s) => (
+        <li><a href={s.href} rel="me noopener">{s.label}</a></li>
+      ))}
+      <li><a href="/rss.xml">RSS</a></li>
+    </ul>
   </div>
 </BaseLayout>

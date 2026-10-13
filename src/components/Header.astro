@@ -1,6 +1,7 @@
 ---
 import { SITE, NAV } from '../consts';
 import ThemeToggle from './ThemeToggle.astro';
+import Logo from './Logo.astro';
 
 // Highlight the active nav item.
 const path = Astro.url.pathname;
@@ -9,7 +10,7 @@ const isCurrent = (href: string) =>
 ---
 <header class="site-header">
   <div class="container">
-    <a class="brand" href="/">{SITE.title}</a>
+    <a class="brand" href="/"><Logo />{SITE.title}</a>
     <nav class="site-nav" aria-label="Primary">
       {NAV.filter((item) => item.href !== '/').map((item) => (
         <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>

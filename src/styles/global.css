@@ -175,14 +175,39 @@ samp {
   padding-block: var(--space-3);
 }
 .site-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: var(--step-2);
   color: var(--color-strong);
   text-decoration: none;
 }
+/* The mark sits on the page background, so the brand shifts color instead of
+   using the inverted link background. */
 .site-header .brand:hover {
-  color: var(--link-hover);
+  color: var(--link);
+  background: none;
+}
+
+/* Logo mark (src/components/Logo.astro) ----------------------------------- */
+
+.logo {
+  flex: none;
+  --logo-feather: var(--orange-bright);
+}
+:root[data-theme="dark"] .logo {
+  --logo-feather: var(--orange);
+}
+.logo__vane {
+  fill: var(--logo-feather);
+}
+.logo__notches {
+  stroke: var(--color-bg);
+}
+.logo__wire {
+  stroke: var(--color-strong);
 }
 .site-nav {
   display: flex;
@@ -247,9 +272,34 @@ samp {
 .site-footer .container {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-2) var(--space-5);
-  justify-content: center;
+  justify-content: space-between;
   padding-block: var(--space-5);
+}
+
+/* Footer social icons (src/components/SocialIcon.astro) */
+.social {
+  display: flex;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social a {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  transition: transform var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+}
+.social a:hover {
+  transform: translateY(-1px);
+  color: var(--color-strong);
+  background: var(--color-surface);
 }
 
 /* Home hero --------------------------------------------------------------- */
@@ -258,6 +308,10 @@ samp {
   padding-bottom: var(--space-5);
   margin-bottom: var(--space-6);
   border-bottom: 1px solid var(--color-hairline);
+}
+.hero .logo {
+  display: block;
+  margin-bottom: var(--space-3);
 }
 .hero h1 {
   font-size: var(--step-6);

@@ -1,6 +1,6 @@
 // Blyg manifest (spec §6.1). Readers discover the blyg by fetching this.
 import type { APIRoute } from 'astro';
-import { SITE } from '../../consts';
+import { SITE, SOCIAL } from '../../consts';
 import {
   AUTHOR,
   BLYG_LEVEL,
@@ -21,7 +21,8 @@ export const GET: APIRoute = async () => {
     generator_url: GENERATOR_URL,
     site: ORIGIN,
     title: SITE.title,
-    author: AUTHOR,
+    // The manifest author is the imprint (§6.1); items keep the plain byline.
+    author: { ...AUTHOR, links: SOCIAL.map(({ label, href }) => ({ label, url: href })) },
     feed: 'feed.xml',
     items: 'items/index.json',
     blogroll: 'blogroll.opml',

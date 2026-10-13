@@ -1,0 +1,22 @@
+---
+// The Feather & Wire mark: a quill whose shaft becomes a circuit trace ending
+// in a solder pad. Decorative; the wordmark next to it is real text.
+// Colors come from .logo in global.css; public/favicon.svg is the fixed-color copy.
+interface Props {
+  size?: number;
+}
+const { size = 28 } = Astro.props;
+---
+<svg class="logo" viewBox="0 0 32 32" width={size} height={size} aria-hidden="true" focusable="false">
+  <path class="logo__vane" d="M28.5 1.5 C30.5 8 26 16 13.2 19.6 C12.2 11.5 18 4 28.5 1.5 Z" />
+  <g class="logo__notches" stroke-width="1.5" stroke-linecap="round">
+    <path d="M24.6 14.4 L21.6 12.6" />
+    <path d="M14.9 11.6 L17.4 13.6" />
+    <path d="M20.4 17.4 L17.8 15.4" />
+  </g>
+  <g class="logo__wire" fill="none" stroke-linecap="round">
+    <path d="M26.6 3.4 L11.5 18.5" stroke-width="1.8" />
+    <path d="M11.5 18.5 L11.5 24.6" stroke-width="2.4" />
+    <circle cx="11.5" cy="27.4" r="2.5" stroke-width="2.1" />
+  </g>
+</svg>

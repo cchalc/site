@@ -3,12 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { getPublishedArticles } from '../utils';
 import { SITE } from '../consts';
+import Logo from '../components/Logo.astro';
 
 const articles = await getPublishedArticles();
 const recent = articles.slice(0, 5);
 ---
 <BaseLayout>
   <section class="hero">
+    <Logo size={72} />
     <h1>{SITE.title}</h1>
     <p class="lead">{SITE.description}</p>
   </section>

@@ -7,6 +7,10 @@ Notable, reader-visible changes to the site and its public surfaces (pages,
 ## [Unreleased]
 
 ### Added
+- Feather & Wire logo (a quill that becomes a circuit trace) in the header and
+  on the home page, with a matching favicon and Apple touch icon.
+- Links to X, LinkedIn and GitHub in the footer and on the About page, as
+  `rel="me"` identity links, and as `author.links` in `/blyg/blyg.json`.
 - The articles are now also published as a Blygger 0.3 blyg at `/blyg/`
   (`blyg.json`, `feed.xml`, `items/index.json`, `items/{id}.json`,
   `blogroll.opml`), discoverable from every page via `<link rel="blyg">`.
@@ -16,6 +20,9 @@ Notable, reader-visible changes to the site and its public surfaces (pages,
 - A skip link, and older/newer navigation at the end of each article.
 
 ### Changed
+- The site is now branded **Feather & Wire** (header, page titles, `/rss.xml`,
+  and the `/blyg/` manifest and feed titles). Christopher Chalcraft remains the
+  author.
 - The site's canonical address is now `https://featherandwire.dev`
   (previously `site-66t.pages.dev`, which still serves the same build).
   Canonical URLs, RSS links, and the sitemap use the new domain; feed readers

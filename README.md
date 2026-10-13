@@ -1,6 +1,6 @@
-# featherandwire.dev
+# Feather & Wire
 
-Christopher Chalcraft's personal site and blog: Astro, Markdown, xess design, and a Blygger blyg.
+Christopher Chalcraft's site and blog at featherandwire.dev: Astro, Markdown, xess design, a Blygger blyg.
 
 Live at **<https://featherandwire.dev>**. Articles are Markdown files in this
 repo; the site is a fully static Astro build deployed on Cloudflare Pages. The
@@ -29,6 +29,10 @@ instance at <https://blyg.featherandwire.dev>.
   `feed.xml`, `items/index.json`, one `items/{id}.json` per article, and
   `blogroll.opml`. Version history is kept in the committed
   `src/blyg/ledger.json`.
+- **Brand:** the Feather & Wire mark (a quill whose shaft becomes a circuit
+  trace ending in a solder pad) is `src/components/Logo.astro`;
+  `public/favicon.svg` and `public/apple-touch-icon.png` are fixed-color
+  copies. Social profiles are listed once in `SOCIAL` in `src/consts.ts`.
 - **Studio:** the reference Blygger client, run as its own Cloudflare Worker
   (D1 + R2). It is deployed separately and is not part of this repo.
 

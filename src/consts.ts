@@ -4,6 +4,12 @@ export const SITE = {
   // Short tagline used on the home page and in meta descriptions.
   description: 'Writing on software, systems, and the things I build.',
   author: 'Christopher Chalcraft',
+  // Short author bio, published as the blyg manifest's author.bio.
+  bio:
+    'I started out listening to the earth: geophysics is mostly reading signals through noise. ' +
+    'These days the signals are data, and I work at Databricks. I like software that converges: ' +
+    'reproducible builds in Nix, supervision trees in Elixir, local-first apps whose sync engines ' +
+    'agree in the end. Vancouver. Duplicate bridge, motorcycles, film photography.',
   // Used for the RSS feed and copyright line.
   lang: 'en',
 } as const;

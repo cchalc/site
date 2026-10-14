@@ -22,7 +22,11 @@ export const GET: APIRoute = async () => {
     site: ORIGIN,
     title: SITE.title,
     // The manifest author is the imprint (§6.1); items keep the plain byline.
-    author: { ...AUTHOR, links: SOCIAL.map(({ label, href }) => ({ label, url: href })) },
+    author: {
+      ...AUTHOR,
+      bio: SITE.bio,
+      links: SOCIAL.map(({ label, href }) => ({ label, url: href })),
+    },
     feed: 'feed.xml',
     items: 'items/index.json',
     blogroll: 'blogroll.opml',

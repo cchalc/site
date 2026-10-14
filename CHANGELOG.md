@@ -7,6 +7,8 @@ Notable, reader-visible changes to the site and its public surfaces (pages,
 ## [Unreleased]
 
 ### Added
+- An author bio on the About page, also published as `author.bio` in
+  `/blyg/blyg.json`.
 - Feather & Wire logo (a quill that becomes a circuit trace) in the header and
   on the home page, with a matching favicon and Apple touch icon.
 - Links to X, LinkedIn and GitHub in the footer and on the About page, as

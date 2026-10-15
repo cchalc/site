@@ -54,6 +54,16 @@ optimization, or an absolute URL for externally hosted images.
 
 ## Style conventions
 
+For voice and tone, follow the
+[`writing-style`](./.agents/behaviors/writing-style/BEHAVIOR.md) behavior:
+playful, first person, takes stated plainly, clean language, specifics over
+adjectives. Agents run every draft through
+[`simplify-draft`](./.agents/behaviors/simplify-draft/BEHAVIOR.md) and
+[`draft-review`](./.agents/behaviors/draft-review/BEHAVIOR.md) before the
+author sees it.
+
+Mechanics:
+
 - Prefer `##`/`###` headings within the body (the title is rendered from
   frontmatter — don't repeat it as an `#` heading).
 - Fenced code blocks with a language tag get syntax highlighting.

@@ -22,8 +22,9 @@ Before writing, gather:
 - The source notes (the task input).
 - [`CONTRIBUTING.md`](../../../CONTRIBUTING.md) for the frontmatter contract and
   style conventions.
-- A few existing posts in `src/content/articles/` to match tone, length, and
-  heading style.
+- [`writing-style`](../writing-style/BEHAVIOR.md) for the voice. Don't copy
+  tone from existing posts: early posts were agent-drafted, so the behavior and
+  its references are the source of truth.
 - The current tag set (`src/content/articles/*` frontmatter, or `/tags/`) so new
   posts reuse existing tags rather than minting near-duplicates.
 - The "Writing in Blygger Studio" section of `CONTRIBUTING.md`, to decide
@@ -45,18 +46,32 @@ Before writing, gather:
 - Do **not** fabricate facts, quotes, data, or links. If the notes are thin or a
   claim is unverifiable, leave a clearly marked `TODO:` and surface it to the
   author rather than inventing.
-- Keep the author's voice: don't over-formalize, don't pad, don't add a
-  conclusion that restates the intro.
+- Write in the [`writing-style`](../writing-style/BEHAVIOR.md) voice: don't
+  over-formalize, don't pad, don't add a conclusion that restates the intro.
 
 ## Execution
 
-1. Draft the Markdown file with complete, schema-valid frontmatter
-   (`title`, `description`, `pubDate`, `tags`, `draft`).
-2. Write the body: no top-level `#` heading (the title comes from frontmatter);
-   use `##`/`###` for structure; fenced code blocks with language tags.
-3. Run `pnpm build` and confirm it passes (schema valid, route renders).
-4. Report to the author: the new file path, a one-line summary, any `TODO:`
-   markers, and that it's a draft awaiting review.
+Every draft goes through the same pipeline before the author sees it:
+
+1. **Draft** in the `writing-style` voice. For a repo article, write the
+   Markdown file with complete, schema-valid frontmatter (`title`,
+   `description`, `pubDate`, `tags`, `draft: true`); no top-level `#`
+   heading; `##`/`###` for structure; fenced code blocks with language tags.
+2. **Simplify** with [`simplify-draft`](../simplify-draft/BEHAVIOR.md): cut,
+   never add, and keep the list of cuts.
+3. **Review** with [`draft-review`](../draft-review/BEHAVIOR.md), on the
+   simplified text. The reviewer only reports findings.
+4. **Fix** the findings, keeping the author's takes and jokes intact.
+5. **Review again** in a fresh pass. A draft only counts as ready when a
+   review pass that made no edits says "ready for the author".
+6. For a repo article, run `pnpm build` and confirm it passes.
+7. **Report to the author:**
+   - the file path (or the Studio text)
+   - a one-line summary
+   - the simplifier's cuts, so they can restore any
+   - the final review verdict and any open findings
+   - any `TODO:` markers
+   - that it's a draft awaiting their review
 
 ## Recovery
 

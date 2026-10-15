@@ -58,3 +58,9 @@ Expected conduct for recurring tasks is documented as behavior specs:
   — turning working notes into a publishable article.
 - [`publishing-changes`](./.agents/behaviors/publishing-changes/BEHAVIOR.md)
   — building, committing, and deploying.
+- [`writing-style`](./.agents/behaviors/writing-style/BEHAVIOR.md)
+  — the Feather & Wire voice for anything published under the author's name.
+- [`simplify-draft`](./.agents/behaviors/simplify-draft/BEHAVIOR.md)
+  — tightening a draft by cutting, never adding.
+- [`draft-review`](./.agents/behaviors/draft-review/BEHAVIOR.md)
+  — reviewing a draft against the voice before the author sees it.

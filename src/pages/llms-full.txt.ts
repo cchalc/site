@@ -8,6 +8,11 @@ export const GET: APIRoute = async ({ site }) => {
   const day = (d: Date) => d.toISOString().slice(0, 10);
   const sections = articles.map((a) => {
     const { title, description, pubDate, updatedDate, tags } = a.data;
+    // MDX source is imports and component tags, not Markdown (the blyg skips
+    // .mdx for the same reason), so those articles get a pointer instead.
+    const body = a.filePath?.endsWith('.mdx')
+      ? 'This article uses interactive components; read it at the URL above.'
+      : (a.body ?? '').trim();
     return [
       `# ${title}`,
       '',
@@ -17,7 +22,7 @@ export const GET: APIRoute = async ({ site }) => {
       '',
       `> ${description}`,
       '',
-      (a.body ?? '').trim(),
+      body,
     ].join('\n');
   });
   const header = `# ${SITE.title}\n\n> ${SITE.description} By ${SITE.author}.\n`;

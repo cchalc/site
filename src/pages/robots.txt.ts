@@ -17,13 +17,15 @@ const AI_CRAWLERS = [
 
 export const GET: APIRoute = ({ site }) => {
   const url = (path: string) => new URL(path, site).href;
-  // Content-Signal: https://contentsignals.org/ (search, AI answers, AI training).
+  // One group for every agent: a crawler that matches a named group ignores
+  // the `*` group, so separate groups would hide Content-Signal from the AI
+  // crawlers it's meant for. Content-Signal: https://contentsignals.org/
   const lines = [
     'User-agent: *',
+    ...AI_CRAWLERS.map((ua) => `User-agent: ${ua}`),
     'Content-Signal: search=yes, ai-input=yes, ai-train=yes',
     'Allow: /',
     '',
-    ...AI_CRAWLERS.flatMap((ua) => [`User-agent: ${ua}`, 'Allow: /', '']),
     `# Site index for AI agents: ${url('/llms.txt')}`,
     `# Full text for AI agents: ${url('/llms-full.txt')}`,
     '',

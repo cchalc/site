@@ -20,6 +20,16 @@
         }
       ]
     },
+    "56hvv6sq73c48anpy1q37v4xtx": {
+      "slug": "lakebase-hop-by-hop",
+      "versions": [
+        {
+          "version": 1,
+          "at": "2026-10-28T00:00:00Z",
+          "hash": "sha256:be54905083977581f4a4592288f38bbf5ff10ea0b8fa8b5f42d3e004f4beb4b4"
+        }
+      ]
+    },
     "6awt8rb2qvbv7e922w2k3z6ev5": {
       "slug": "notes-and-articles",
       "versions": [

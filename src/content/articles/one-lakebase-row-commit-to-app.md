@@ -1,7 +1,7 @@
 ---
 title: "One Lakebase row, from commit to warehouse to app"
 description: "One Lakebase row followed to the warehouse and to apps on Databricks Lakebase and Neon.com, each hop dated 2026-10-19, with the check that governs each read."
-pubDate: 2026-11-16
+pubDate: 2026-11-09
 tags: [lakebase, lakebase-series, postgres, databricks, neon, unity-catalog, logical-replication]
 draft: true
 ---

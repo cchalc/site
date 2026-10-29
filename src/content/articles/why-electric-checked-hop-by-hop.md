@@ -1,7 +1,7 @@
 ---
 title: Why Electric for Lakebase, checked hop by hop
 description: "Databricks' stated case for Electric, a Postgres in the agent's sandbox, checked hop by hop as of 2026-10-19. My labelled view: a good bet, not yet a product."
-pubDate: 2026-11-23
+pubDate: 2026-11-16
 tags: [lakebase, lakebase-series, postgres, databricks, electric, pglite, agents, sync]
 draft: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Lakebase hop by hop: I think Electric's a good bet"
 description: "A dated hop-by-hop status map of Lakebase Postgres on Databricks Lakebase and Neon.com, and my labelled view that Electric is a good bet on Databricks' premise."
-pubDate: 2026-11-02
+pubDate: 2026-10-28
 tags: [lakebase, lakebase-series, postgres, databricks, electric, agents]
 draft: true
 ---

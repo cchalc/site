@@ -1,7 +1,7 @@
 ---
 title: Reading the Durable Streams and SlateDB specs
 description: I read the Durable Streams DRAFT and SlateDB's specs separately, for what each guarantees and what it leaves to implementers. I'm excited by SlateDB's specs.
-pubDate: 2026-11-30
+pubDate: 2026-11-23
 tags: [lakebase, lakebase-series, durable-streams, slatedb, electric]
 draft: true
 ---

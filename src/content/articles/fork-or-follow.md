@@ -1,7 +1,7 @@
 ---
 title: Fork or follow, the two verbs under Lakebase
 description: "Lakebase branches, restores and read replicas all start as new compute on existing storage; fork or follow sets the cost. From Databricks' architecture docs."
-pubDate: 2026-11-09
+pubDate: 2026-11-02
 tags: [lakebase, lakebase-series, postgres, neon, branching, agents]
 draft: true
 ---

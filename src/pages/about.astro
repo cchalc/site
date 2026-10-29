@@ -1,8 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SOCIAL } from '../consts';
+import { profilePage } from '../seo';
 ---
-<BaseLayout title="About" description="Christopher Chalcraft: geophysics roots, data at Databricks, Nix, Elixir, local-first software.">
+<BaseLayout
+  title="About"
+  description="Christopher Chalcraft: geophysics roots, data at Databricks, Nix, Elixir, local-first software."
+  jsonLd={profilePage(Astro.site!)}
+>
   <div class="prose">
     <h1>About</h1>
     <p>Hi, I'm Christopher.</p>

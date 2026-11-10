@@ -1,14 +1,15 @@
 ---
 title: Fork or follow, the two verbs under Lakebase
 description: "Lakebase branches, restores and read replicas all start as new compute on existing storage; fork or follow sets the cost. From Databricks' architecture docs."
-pubDate: 2026-11-02
+pubDate: 2026-11-10
 tags: [lakebase, lakebase-series, postgres, neon, branching, agents]
-draft: true
+draft: false
+blygId: 2kjgdzks3hzde9eejeznxxs840
 ---
 
 *Lakebase, part 2 of 5.* Branch a Lakebase database, restore it or add a read replica, and by Databricks' own architecture docs you get the same trick three times.
 
-Lakebase is managed Postgres on Databricks. Lakebase Postgres is one engine on two surfaces, Databricks Lakebase and Neon.com ([Lakebase Postgres overview](https://docs.databricks.com/aws/en/oltp/projects)). Databricks' agreement with Neon was announced on 2025-05-14 ([Neon agreement announcement](https://www.databricks.com/blog/databricks-neon)). Status claims here are as of 2026-10-19. [Part 1 has the whole map](/articles/lakebase-hop-by-hop/); this is its storage paragraph, at length.
+Lakebase is managed Postgres on Databricks. Lakebase Postgres is one engine on two surfaces, Databricks Lakebase and Neon.com ([Lakebase Postgres overview](https://docs.databricks.com/aws/en/oltp/projects)). Databricks' agreement with Neon was announced on 2025-05-14 ([Neon agreement announcement](https://www.databricks.com/blog/databricks-neon)). Status claims here are as of 2026-11-10. [Part 1 has the whole map](/articles/lakebase-hop-by-hop/); this is its storage paragraph, at length.
 
 ## New compute pointed at old storage
 

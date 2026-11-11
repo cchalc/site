@@ -18,13 +18,15 @@ Codex was the other surprise. The reply came back fine, but the call landed on m
 
 ## SQL to Qwen, planning to Gemini
 
-Through AI Gateway I set up model services as a bundle: a Gemini router split 80/20 between two Flash versions, and a separate service for Qwen. A small classifier labels each prompt, and SQL goes to Qwen while planning and organizing go to Gemini. A keyword fallback catches the classifier's bad days.
+Through AI Gateway I set up model services as a bundle: a Gemini router split 80/20 between two Flash versions, and a separate service for Qwen. A small classifier labels each prompt, and SQL is supposed to go to Qwen while planning and organizing go to Gemini. A keyword fallback catches the classifier's bad days.
 
 The thing I'd tell anyone copying this: the model that served a call is `destination_model` in the gateway's usage table. It isn't the service name. My own demo recipes print the model I configured, which is exactly the number I shouldn't trust. A 16/4 split on a 20-call run looked right and proved nothing until I read the table, an hour or so later.
 
 ## A router agent with a gate
 
-I wrapped that routing in a custom agent, Rory, with two workers: Codex for review and deploy, Qwen for SQL. The part I care about is the deploy gate. Rory can plan an infrastructure change, but anything that relays an approval stops at a CEL policy and asks a human. There's no auto-approve anywhere. I haven't watched that policy fire yet, so I call it the intended gate, not a proven one.
+Then I built a custom agent, Rory, that does the dispatching in its prompt instead of a classifier. Rory writes no code. It picks a worker, sends the task, and presents what comes back: Codex for review and deploy, Qwen for SQL. Every reply starts with a line like `route: sql -> qwen`, which exists so a room can watch the decision happen.
+
+The part I care about is the deploy gate. The workers are headless and can't answer an approval prompt, and Rory has no shell, so the usual blast-radius policy would gate nothing. Instead a CEL policy catches any message that relays the word `APPROVED` to Codex and stops for a human. Deploys are two-phase: Codex plans, I read the plan, and only then does Rory send the approval. Rory never destroys; that one is mine to run. I haven't watched the policy fire yet, so I call it the intended gate, not a proven one.
 
 ## Set up, not yet run
 
@@ -34,7 +36,7 @@ Some of this is built and waiting. The environment is ready for a Sandbox run, f
 
 Omnigent layers its configuration: server, user, project, and the agent bundle. In the project layer only the harness choice merges, so a lean repo can say "use this harness" without dragging along anyone's credentials. The agent bundle carries its own guardrails, so the rules travel with the agent. The server-level policy sits above both and can't be edited away. On the managed server that's built-in and CEL policies only, not custom Python.
 
-That separation is the factory. A new teammate gets the repo and their own environment file, and they can reproduce the same routing, the same agents, the same gates. Swap the harness and nothing downstream notices.
+That separation is the factory. A new teammate gets the repo and their own environment file, and they can reproduce the same routing, the same agents, the same gates.
 
 I wrote the whole sequence up as a replayable walkthrough, with the commands, the expected output, and a fallback for each step, in the [omnigent-talk repo](https://github.com/cchalc/omnigent-talk). Some chapters show real output and some show only the setup. Each one says which.
 

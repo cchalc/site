@@ -1,9 +1,10 @@
 ---
 title: Harnesses are cheap. The config is the factory.
 description: I ran one prompt through four coding harnesses on Omnigent, sent SQL to Qwen and planning to Gemini through Databricks AI Gateway, and built a router agent. The layers of config are what made it repeatable.
-pubDate: 2026-11-12
+pubDate: 2026-11-11
 tags: [omnigent, databricks, ai-gateway, agents, routing]
-draft: true
+draft: false
+blygId: 286v0fk0ghapnabts20bzznwj4
 ---
 
 I sent the same prompt through four harnesses in an afternoon. The answers weren't the interesting part. The interesting part was that I changed harness with one flag and nothing else moved.

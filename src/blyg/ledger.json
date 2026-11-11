@@ -20,6 +20,16 @@
         }
       ]
     },
+    "286v0fk0ghapnabts20bzznwj4": {
+      "slug": "omnigent-config-is-the-factory",
+      "versions": [
+        {
+          "version": 1,
+          "at": "2026-11-11T00:00:00Z",
+          "hash": "sha256:da974807633d82b02b315dcf79707ef0298e5219f91b558fbf0669f354b005c3"
+        }
+      ]
+    },
     "56hvv6sq73c48anpy1q37v4xtx": {
       "slug": "lakebase-hop-by-hop",
       "versions": [

@@ -51,6 +51,20 @@ genuinely unsure, say so in plain words ("I'm not sure yet", "I don't fully
 get this part") rather than hedging every sentence. Pick a side when there is
 one.
 
+**Authority.** The author sets the terms; they aren't relaying research. State
+the claim as fact, in the author's voice, and let the Sources list carry the
+attribution. Don't write "Databricks says", "the architecture page calls it",
+"according to the docs", or a quote introduced by who said it. Paraphrase,
+and quote only when the exact wording is itself the point. Where a claim is
+the author's opinion, don't dress it as sourced fact. Where the author hasn't
+verified a vendor claim, say so plainly ("I haven't timed it") instead of
+hiding behind attribution.
+
+**Links.** Few. Link a source once, at its first use that matters, not after
+every sentence. One link can cover a run of claims from the same page. The
+`## Sources` list at the end holds the rest. A paragraph with three links is
+a footnote farm; cut it down.
+
 **Humor.** Encouraged. It works best as:
 
 - deadpan understatement
@@ -103,7 +117,9 @@ The author works at Databricks and writes a lot about it.
   Databricks docs, public release notes, public blog posts, or research the
   author supplies. Nothing internal: no roadmaps, unreleased features,
   customer names that aren't public, internal tools, or internal numbers.
-- **Link the source** for every product claim.
+- **Every product claim has a public source**, but the source goes in the
+  `## Sources` list and, at most, one link at first use. Don't attribute in
+  prose ("Databricks says"); state it and move on.
 - **Practitioner, not marketing.** Introduce a feature as the fix for a pain
   the reader already has, the way Databricksters does. Say what it doesn't do,
   and mention Preview status or other caveats. No "unlock", "empower",
@@ -137,6 +153,8 @@ The author works at Databricks and writes a lot about it.
 - A post that reads as a template: throat-clearing intro, generic headings,
   recap ending.
 - Corporate voice or vendor voice, especially in Databricks posts.
+- Research-report voice: "X says", "Y calls it", a link after every sentence.
+  The author is the opinionated voice, not a summarizer.
 - Elitism: assuming the reader is foolish, or showing off.
 - Invented specifics: fake numbers, quotes, anecdotes, or benchmarks.
 - Imitating a reference blog's signature devices (Xe's characters, Thorsten's

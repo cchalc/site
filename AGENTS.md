@@ -64,3 +64,6 @@ Expected conduct for recurring tasks is documented as behavior specs:
   — tightening a draft by cutting, never adding.
 - [`draft-review`](./.agents/behaviors/draft-review/BEHAVIOR.md)
   — reviewing a draft against the voice before the author sees it.
+- [`studio-fragment`](./.agents/behaviors/studio-fragment/BEHAVIOR.md)
+  — writing and publishing a short Studio fragment via the `blyg-studio` MCP
+  server, with public links only.

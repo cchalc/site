@@ -108,10 +108,19 @@ Markdown and the MDX components (`Admonition`, `Badge`, `Figure`) only.
 | Short note (≤ ~1,000 characters) | Studio, as a **fragment** | blyg.featherandwire.dev |
 | Response to, or quotation of, another post | Studio, as a **thread** (often a **stub**) | blyg.featherandwire.dev |
 
-**Agents can't publish to Studio.** It's behind the author's owner login. For
-Studio pieces, draft the text using the syntax below and hand it to the author
-to paste and publish. Never invent item ids: ask the author for them, or take
-them from a repo article's `blygId`.
+**Agents publish to Studio through the `blyg-studio` MCP server.** It
+authenticates with a scoped token in `BLYG_STUDIO_TOKEN` (set in the gitignored
+`.envrc`; run `direnv allow` and start the agent from this folder). Publishing
+is public and a published fragment is versioned, so the author must approve
+the exact text first. Create the item as a draft, show the text, and call
+`publishItem` only after a go-ahead. Without the MCP server, draft the text
+using the syntax below and hand it to the author to paste and publish. Never
+invent item ids: ask the author for them, or take them from a repo article's
+`blygId`.
+
+Studio doesn't subscribe to this site's blyg by default, so `[[<blygId>]]`
+won't resolve until it does. Until then, link to the article's URL with plain
+Markdown.
 
 **Quoting site articles from Studio.** Every published repo article is an item
 on the `/blyg/` blyg, and its id is the `blygId` in its frontmatter. Once

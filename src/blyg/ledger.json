@@ -40,6 +40,16 @@
         }
       ]
     },
+    "4gfc5q43h099kz73rwm3yswr94": {
+      "slug": "one-lakebase-row-commit-to-app",
+      "versions": [
+        {
+          "version": 1,
+          "at": "2026-11-24T00:00:00Z",
+          "hash": "sha256:1b07b82cf94f62b32db051e2f434485d3fc68ba12e56adcb315f16ef7a8c50c0"
+        }
+      ]
+    },
     "56hvv6sq73c48anpy1q37v4xtx": {
       "slug": "lakebase-hop-by-hop",
       "versions": [

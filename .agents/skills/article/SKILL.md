@@ -64,8 +64,11 @@ The new worktree is relative to the checkout `BLOG` points at.
     `grep -h '^tags:' src/content/articles/*.md* | tr -d '[]' | cut -d: -f2 | tr ',' '\n' | sed 's/ //g' | sort -u`.
 - Code: a fence with a language tag. Fence titles don't render, so name the file in the
   sentence before the fence.
-- Diagrams: a hand-written SVG next to the post, `![alt](./<name>.svg)`. Give the SVG
-  an opaque background rect and use palette hexes from `src/styles/tokens.css`.
+- Images and diagrams go in `public/images/<slug>/`, referenced as
+  `![alt](/images/<slug>/<name>.svg)`. Don't put them next to the post: relative images
+  go through Astro's optimizer, which needs `sharp`, and the repo doesn't install it. The
+  production build fails with `MissingSharp` (drafts hide this, because they're skipped).
+- Diagrams are hand-written SVG. Give each one an opaque background rect and use palette hexes from `src/styles/tokens.css`.
   - The site's theme toggle sets `data-theme`, which an `<img>` can't see, so the
     opaque card keeps it readable in both themes.
   - A plain (no-language) ASCII fence is the fallback.
@@ -80,7 +83,8 @@ The new worktree is relative to the checkout `BLOG` points at.
 
 ## 6. Gate
 
-- `pnpm build` must pass. It validates the schema but skips drafts.
+- `pnpm build` must pass. It skips drafts, so it proves nothing about the new post
+  until `draft: false`; step 8 builds again then.
 - To see the draft rendered, run `pnpm dev` in the background (port 4321), then take a
   screenshot:
 

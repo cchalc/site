@@ -67,3 +67,27 @@ Expected conduct for recurring tasks is documented as behavior specs:
 - [`studio-fragment`](./.agents/behaviors/studio-fragment/BEHAVIOR.md)
   — writing and publishing a short Studio fragment via the `blyg-studio` MCP
   server, with public links only.
+
+## Skills
+
+Two agent skills drive the behaviors above end to end. They live in
+[`.agents/skills/`](./.agents/skills/), the only real copy. `.claude/skills` is a
+symlink to it, so Claude Code finds them in this repo.
+
+- [`article`](./.agents/skills/article/SKILL.md) (`/article`) — write up work from
+  any project as a repo article: worktree, draft, simplify and review, build,
+  screenshot, then publish on approval.
+- [`fragment`](./.agents/skills/fragment/SKILL.md) (`/fragment`) — write and
+  publish a Studio fragment through the `blyg-studio` MCP server, on approval.
+
+To use them from other projects, link them into your user-level skill
+directories (`~/.claude/skills`, and `~/.agents/skills` for pi, Codex and other
+harnesses):
+
+```sh
+bash scripts/link-skills.sh --dry-run   # preview
+bash scripts/link-skills.sh             # link; idempotent
+```
+
+Run it from the checkout you keep on `main`. The skills read the behavior specs
+fresh on every run, so change the rules in the behaviors, not in the skills.

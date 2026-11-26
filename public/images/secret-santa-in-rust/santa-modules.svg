@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 350" width="680" height="350" role="img" aria-labelledby="t d">
+  <title id="t">santa's modules: a pure core inside an imperative shell</title>
+  <desc id="d">The shell holds main, cli, files and mailer, which do all the I/O. The functional core holds domain, roster, rules, solver, accommodate, seal, history, send, template, message, html and backup. Randomness and the mailer are passed into the core. Numbers are line counts, including inline tests; cli is the largest at 1,520.</desc>
+  <defs>
+    <style>
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .sans { font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .chip { fill: #32302f; stroke: #504945; stroke-width: 1; }
+      .name { fill: #ebdbb2; font-size: 13px; }
+      .loc { fill: #a89984; font-size: 11.5px; }
+      .head { font-size: 13px; font-weight: 600; }
+      .sub { fill: #a89984; font-size: 12px; }
+    </style>
+  </defs>
+  <rect width="680" height="350" rx="10" fill="#1d2021"/>
+  <rect x="20" y="20" width="640" height="310" rx="10" fill="none" stroke="#fe8019" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="sans head" x="38" y="44" fill="#fe8019">imperative shell</text>
+  <text class="sans sub" x="150" y="44">files, SMTP, the terminal; lines of code per module</text>
+  <g class="mono">
+    <rect class="chip" x="53" y="60" width="136" height="36" rx="6"/>
+    <text class="name" x="65" y="83">main</text><text class="loc" x="177" y="83" text-anchor="end">31</text>
+    <rect class="chip" x="199" y="60" width="136" height="36" rx="6" style="stroke:#fe8019"/>
+    <text class="name" x="211" y="83">cli</text><text class="loc" x="323" y="83" text-anchor="end" style="fill:#fe8019">1,520</text>
+    <rect class="chip" x="345" y="60" width="136" height="36" rx="6"/>
+    <text class="name" x="357" y="83">files</text><text class="loc" x="469" y="83" text-anchor="end">84</text>
+    <rect class="chip" x="491" y="60" width="136" height="36" rx="6"/>
+    <text class="name" x="503" y="83">mailer</text><text class="loc" x="615" y="83" text-anchor="end">212</text>
+  </g>
+  <rect x="40" y="116" width="600" height="196" rx="10" fill="#282828" stroke="#8ec07c" stroke-width="1.5"/>
+  <text class="sans head" x="56" y="140" fill="#8ec07c">functional core</text>
+  <text class="sans sub" x="162" y="140">data in, Result out; the Rng and the Mailer are passed in</text>
+  <g class="mono">
+    <rect class="chip" x="53" y="156" width="136" height="36" rx="6"/>
+    <text class="name" x="65" y="179">domain</text><text class="loc" x="177" y="179" text-anchor="end">287</text>
+    <rect class="chip" x="199" y="156" width="136" height="36" rx="6"/>
+    <text class="name" x="211" y="179">roster</text><text class="loc" x="323" y="179" text-anchor="end">347</text>
+    <rect class="chip" x="345" y="156" width="136" height="36" rx="6" style="stroke:#fabd2f"/>
+    <text class="name" x="357" y="179">rules</text><text class="loc" x="469" y="179" text-anchor="end">531</text>
+    <rect class="chip" x="491" y="156" width="136" height="36" rx="6" style="stroke:#fabd2f"/>
+    <text class="name" x="503" y="179">solver</text><text class="loc" x="615" y="179" text-anchor="end">802</text>
+    <rect class="chip" x="53" y="204" width="136" height="36" rx="6"/>
+    <text class="name" x="65" y="227">accommodate</text><text class="loc" x="177" y="227" text-anchor="end">276</text>
+    <rect class="chip" x="199" y="204" width="136" height="36" rx="6"/>
+    <text class="name" x="211" y="227">seal</text><text class="loc" x="323" y="227" text-anchor="end">227</text>
+    <rect class="chip" x="345" y="204" width="136" height="36" rx="6"/>
+    <text class="name" x="357" y="227">history</text><text class="loc" x="469" y="227" text-anchor="end">345</text>
+    <rect class="chip" x="491" y="204" width="136" height="36" rx="6"/>
+    <text class="name" x="503" y="227">send</text><text class="loc" x="615" y="227" text-anchor="end">372</text>
+    <rect class="chip" x="53" y="252" width="136" height="36" rx="6"/>
+    <text class="name" x="65" y="275">template</text><text class="loc" x="177" y="275" text-anchor="end">280</text>
+    <rect class="chip" x="199" y="252" width="136" height="36" rx="6"/>
+    <text class="name" x="211" y="275">message</text><text class="loc" x="323" y="275" text-anchor="end">310</text>
+    <rect class="chip" x="345" y="252" width="136" height="36" rx="6"/>
+    <text class="name" x="357" y="275">html</text><text class="loc" x="469" y="275" text-anchor="end">177</text>
+    <rect class="chip" x="491" y="252" width="136" height="36" rx="6"/>
+    <text class="name" x="503" y="275">backup</text><text class="loc" x="615" y="275" text-anchor="end">139</text>
+  </g>
+</svg>

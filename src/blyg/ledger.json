@@ -60,6 +60,16 @@
         }
       ]
     },
+    "5b899v0wtmmaq8hd2r4gx229gz": {
+      "slug": "secret-santa-in-rust",
+      "versions": [
+        {
+          "version": 1,
+          "at": "2026-11-25T00:00:00Z",
+          "hash": "sha256:530b06ffe45b613480630d56b6a3a630d692c8d32f38440d7c05d4a6511f6c43"
+        }
+      ]
+    },
     "6awt8rb2qvbv7e922w2k3z6ev5": {
       "slug": "notes-and-articles",
       "versions": [
